@@ -1,14 +1,15 @@
 mapping = {
     'appliances': 'ppa',
-    'toys & games': 'taa',
+    'toys_games': 'taa',
     'furniture': 'fua',
-    'baby & kid': 'baa',
+    'baby_kid': 'baa',
     'bikes': 'bia',
     'electronics': 'ela',
-    'clothing & accessories': 'cla',
+    'clothing_accessories': 'cla',
     'household': 'hsa',
     'computers': 'sya',
     'cellphones': 'moa',
     'general': 'foa',
-    'sporting good': 'sga'
+    'sporting_goods': 'sga',
+    'free': 'zip'
 }
