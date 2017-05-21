@@ -1,0 +1,126 @@
+<% var betterWords =  ["Appliances", "Toys and Games", "Furniture", "Babies and Kids", "Bikes",
+"Electronics", "Clothing and Accessories","Household Items", "Computers", "Cellphones",
+"General", "Sporting Goods", "Free Items"] %>
+
+
+<% include partials/head %>
+<div class="jumbotron" style="border: none; box-shadow: none; background: #20B2AA; color: white; display: flex; align-items: center; justify-content: center; height: 180px; padding: 0px; margin: 0px;">
+  <h1 class="display-4">Donation Form</h1>
+</div>
+
+<div class="container">
+
+  <br>
+  <form action="/donate/new" method="post">
+  <div class="row">
+    <!-- <br> -->
+    <div class="col-md-3">
+      Name: *
+    </div>
+    <div class="col-md-6">
+      <input type="text" name="contactName" value="" required>
+    </div>
+
+  </div>
+<br>
+
+  <div class="row">
+    <!-- <br> -->
+    <div class="col-md-3">
+      Address: *
+    </div>
+    <div class="col-md-6">
+      <input type="text" name="address" value="" required>
+    </div>
+
+  </div>
+<br>
+  <div class="row">
+    <!-- <br> -->
+    <div class="col-md-3">
+      Contact (Phone):
+    </div>
+    <div class="col-md-6">
+      <input type="text" name="cPhone" value="">
+    </div>
+
+  </div>
+<br>
+<div class="row">
+  <!-- <br> -->
+  <div class="col-md-3">
+    Contact(Email): *
+  </div>
+  <div class="col-md-6">
+    <input type="email" name="cEmail" value="" required>
+  </div>
+
+</div>
+<br>
+<div class="row">
+  <!-- <br> -->
+  <div class="col-md-3">
+    Image(URL):
+  </div>
+  <div class="col-md-6">
+    <input type="url" name="url" value="">
+  </div>
+
+</div>
+<br>
+    <div class="row">
+      <!-- <br> -->
+      <div class="col-md-3">
+        Item Name: *
+      </div>
+      <div class="col-md-6">
+        <input type="text" name="ItemName" value="" required>
+      </div>
+
+
+    </div>
+  <br>
+
+    <div class="row">
+      <div class="col-md-3">
+        Item Category: *
+      </div>
+      <div class="col-md-6">
+      <div class="form-group">
+          <label for="exampleSelect1">Use a hosting solution like imgur to host the image.</label>
+          <select class="form-control" name="cat" required>
+            <% var x = 0 %>
+
+
+            <% categories.forEach (function(cat) { %>
+              <option value="<%= cat %>"><%=betterWords[x]%></option>
+              <% x++ %>
+
+            <% }) %>
+          </select>
+        </div>
+      </div>
+
+    </div>
+    <br>
+    <div class="row">
+      <!-- <br> -->
+      <div class="col-md-3">
+        Listing Time (Days): *
+      </div>
+      <div class="col-md-6">
+        <input type="number" name="days" value="7" min="1" required>
+      </div>
+
+    </div>
+    <br>
+
+    <hr>
+
+    <input type="submit" class="btn btn-block " style="background: #20B2AA" />
+
+  </form>
+<br><br><br>
+</div>
+
+<% include partials/footer %>
