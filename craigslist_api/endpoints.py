@@ -1,11 +1,10 @@
-from flask import Flask, jsonify
+from flask import jsonify, Flask
 from craigslist_api.search import get_all_free_items_in_category, get_item_in_category
 from craigslist_api.error import InvalidUsage
 
 DEFAULT_CRAIGSLIST_SITE = 'houston'
 
 app = Flask(__name__)
-
 
 @app.route('/', methods=['GET'])
 def index():
@@ -38,6 +37,3 @@ def handle_invalid_usage(error):
     response = jsonify(error.to_dict())
     response.status_code = error.status_code
     return response
-
-if __name__ == '__main__':
-    app.run(debug=True, host='0.0.0.0')
