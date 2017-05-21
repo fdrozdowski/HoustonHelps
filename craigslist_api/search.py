@@ -3,7 +3,7 @@ from bs4 import BeautifulSoup
 from craigslist import CraigslistForSale
 from craigslist_api.category_mapping import mapping
 
-DEFAULT_NUMBER_OF_LISTINGS = 5
+DEFAULT_NUMBER_OF_LISTINGS = 10
 
 
 class CraigslistFreeStuff(CraigslistForSale):
