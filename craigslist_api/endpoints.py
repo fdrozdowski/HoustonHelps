@@ -11,7 +11,7 @@ app = Flask(__name__)
 
 @app.route('/', methods=['GET'])
 def index():
-    return 'Craigslist API'
+    return escape('Craigslist API. The valid endpoints are GET /items/<category> and GET /items/<category>/<query>')
 
 
 @app.route('/items/<string:category>', methods=['GET'])
