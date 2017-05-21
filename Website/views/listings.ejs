@@ -1,0 +1,106 @@
+<% var betterWords =  ["Appliances", "Toys and Games", "Furniture", "Babies and Kids", "Bikes",
+"Electronics", "Clothing and Accessories","Household Items", "Computers", "Cellphones",
+"General", "Sporting Goods", "Free Items"] %>
+
+
+<% include partials/head %>
+  <div class="jumbotron" style="background: #20B2AA; color: white; display: flex; align-items: center; justify-content: center; height: 180px; padding: 0px; margin: 0px; border: none; box-shadow: none">
+    <h1 class="display-2">Listings</h1>
+  </div>
+  <br><br>
+
+  <div class="row">
+    <div class="col-md-1">
+
+    </div>
+    <div class="col-md-3">
+      <div class="container">
+        <h2>Categories - (<%= categories.length %>)</h2>
+        <hr>
+        <ul>
+          <% var x = 0 %>
+        <% categories.forEach(function(component) { %>
+            <li>
+              <p class="lead"><a href="/listings/c/<%=component%>"><%=betterWords[x]%></a></p>
+              <% x++ %>
+            </li>
+        <% }) %>
+        </ul>
+      </div>
+    </div>
+    <div class="col-md-8">
+
+      <% if(donations !== null) { %>
+        <h1>Donations - (<%= donations.length %>)</h1>
+        <hr>
+        <% donations.forEach(function(item) { %>
+
+          <div class="row">
+            <div class="col-md-9">
+              <h2><%= item.itemName %></h2>
+              <p class="lead">Posted By <strong><%= item.contactName %></strong></p>
+              <p class="lead"><strong>Contact Info ::</strong>
+              <% if(item.cPhone !== "" || item.cPhone === null) { %>
+                <%= item.contactPhone + "|" %>
+              <% } %>
+              <% if(item.cEmail !== "") { %>
+                <%= item.contactEmail %>
+
+              <% } %></p>
+              <p class="lead">
+              <strong>Address ::</strong> <%= item.address %>
+              </p>
+            </div>
+
+            <div class="col-md-2">
+              <img src="<%= item.imageLink %>" alt="" class="img-fluid">
+            </div>
+            <div class="col-md-1">
+
+            </div>
+
+          </div>
+          <hr>
+        <% }) %>
+      <% }  %>
+
+
+      <% if(items !== null) { %>
+        <h1>Free Listings - (<%= items.length %>)</h1>
+        <hr>
+        <div class="container">
+        <% items.forEach(function(item) { %>
+
+          <div class="row">
+            <div class="col-md-9">
+              <h2><%= item.name %></h2>
+              <p class="lead">ID <strong><%= item.id %></strong></p>
+              <p class="lead">
+              <strong>General Location ::</strong> <%= item.where %>
+              </p>
+              <p class="lead"><%= item.dateTime %></p>
+              <p class="lead"><a href="<%=item.url%>">More Information</a></p>
+            </div>
+
+            <div class="col-md-2">
+              <% if(item.has_image) { %>
+                <img src="<%= item.image %>" alt="" class="img-fluid">
+              <% } else { %>
+                <img src="http://cumbrianrun.co.uk/wp-content/uploads/2014/02/default-placeholder-300x300.png" alt="" class="img-fluid">
+
+                <% } %>
+            </div>
+            <div class="col-md-1">
+
+            </div>
+
+          </div>
+            <hr>
+        <% }) %>
+        </div>
+      <% }  %>
+
+    </div>
+  </div>
+  <br><br><br>
+<% include partials/footer %>
