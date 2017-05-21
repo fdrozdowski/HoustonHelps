@@ -5,13 +5,14 @@ from craigslist_api.search import get_all_free_items_in_category, get_item_in_ca
 from craigslist_api.error import InvalidUsage
 
 DEFAULT_CRAIGSLIST_SITE = 'houston'
+API_DESCRIPTION = 'The valid endpoints are GET /items/<category> and GET /items/<category>/<query>'
 
 app = Flask(__name__)
 
 
 @app.route('/', methods=['GET'])
 def index():
-    return escape('Craigslist API. The valid endpoints are GET /items/<category> and GET /items/<category>/<query>')
+    return escape('Craigslist API. ' + API_DESCRIPTION)
 
 
 @app.route('/items/<string:category>', methods=['GET'])
@@ -39,5 +40,4 @@ def handle_invalid_usage(error):
 
 @app.errorhandler(404)
 def page_not_found(e):
-    return escape('The endpoint doesn\'t exist.\nThe valid endpoints are GET /items/<category> and GET '
-                  '/items/<category>/<query>')
+    return escape('The endpoint doesn\'t exist.\n' + API_DESCRIPTION)
